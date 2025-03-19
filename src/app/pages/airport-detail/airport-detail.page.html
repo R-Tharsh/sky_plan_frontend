@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Airport Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="airport">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{ airport.name }}</ion-card-title>
+      <ion-card-subtitle>{{ airport.iata_code }}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <p><strong>Country:</strong> {{ airport.country_name }}</p>
+      <p><strong>Region:</strong> {{ airport.iso_region }}</p>
+      <p><strong>Code:</strong> {{ airport.iata_code }}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

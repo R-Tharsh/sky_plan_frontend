@@ -1,12 +1,26 @@
 import { Component } from '@angular/core';
-import { IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/angular/standalone';
+import { Router } from '@angular/router';
+import { IonicModule } from '@ionic/angular';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent],
+  standalone: true, // Mark it as a standalone component
+  imports: [IonicModule, FormsModule, CommonModule], // Import necessary modules
+  templateUrl: './home.page.html',
+  styleUrls: ['./home.page.scss'],
 })
 export class HomePage {
-  constructor() {}
+  airportCode: string = '';
+
+  constructor(private router: Router) {}
+
+  goToAirports() {
+    if (this.airportCode) {
+      this.router.navigate(['/airports'], { queryParams: { code: this.airportCode } });
+    } else {
+      this.router.navigate(['/airports']);
+    }
+  }
 }

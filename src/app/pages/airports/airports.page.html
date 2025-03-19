@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Airport Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+    <ion-col size="1"><strong>id</strong></ion-col>
+      <ion-col size="3"><strong>Name</strong></ion-col>
+      <ion-col size="3"><strong>Country</strong></ion-col>
+      <ion-col size="2"><strong>Region</strong></ion-col>
+      <ion-col size="2"><strong>Code</strong></ion-col>
+    </ion-row>
+
+    <ion-row *ngFor="let airport of airports">
+    <ion-col size="1">
+      <a [routerLink]="['/airport-details', airport.id]">{{ airport.id }}</a>
+    </ion-col>
+      <ion-col size="3">{{ airport.name }}</ion-col>
+      <ion-col size="3">{{ airport.country_name }}</ion-col>
+      <ion-col size="2">{{ airport.iso_region }}</ion-col>
+      <ion-col size="2">{{ airport.iata_code }}</ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-button (click)="prevPage()" [disabled]="currentPage === 1">Previous</ion-button>
+  <ion-button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</ion-button>
+</ion-content>

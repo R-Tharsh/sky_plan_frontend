@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Add Flight</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="submitFlight()">
+    <ion-item>
+      <ion-label position="floating">Flight No</ion-label>
+      <ion-input type="text" [(ngModel)]="flight.flight_no" name="flight_no" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Origin</ion-label>
+      <ion-input type="text" [(ngModel)]="flight.origin" name="origin" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Destination</ion-label>
+      <ion-input type="text" [(ngModel)]="flight.destination" name="destination" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Time</ion-label>
+      <ion-input type="time" [(ngModel)]="flight.time" name="time" required></ion-input>
+    </ion-item>
+
+    <ion-button expand="full" type="submit">Add Flight</ion-button>
+  </form>
+</ion-content>
