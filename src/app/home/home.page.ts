@@ -23,4 +23,11 @@ export class HomePage {
       this.router.navigate(['/airports']);
     }
   }
+
+  goToAddFlight() {
+    this.router.navigate(['/add-flight']); // Ensure this route is correctly configured in your routing module
+  }
+
+
+
 }

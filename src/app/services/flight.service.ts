@@ -13,6 +13,9 @@ export class FlightService {
 
   // Method to add a flight
   addFlight(flightData: any): Observable<any> {
+    // Convert 'time' to HH:mm:ss format if needed
+    flightData.time = flightData.time.length === 5 ? flightData.time + ':00' : flightData.time;
+
     return this.http.post(this.apiUrl, flightData);
   }
 }
