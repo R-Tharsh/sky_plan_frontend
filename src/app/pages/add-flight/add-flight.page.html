@@ -4,28 +4,54 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <form (ngSubmit)="submitFlight()">
-    <ion-item>
-      <ion-label position="floating">Flight No</ion-label>
-      <ion-input type="text" [(ngModel)]="flight.flight_no" name="flight_no" required></ion-input>
-    </ion-item>
+<ion-content class="ion-padding">
+  <ion-card class="flight-card">
+    <ion-card-header>
+      <ion-card-title>Flight Details</ion-card-title>
+    </ion-card-header>
 
-    <ion-item>
-      <ion-label position="floating">Origin</ion-label>
-      <ion-input type="text" [(ngModel)]="flight.origin" name="origin" required></ion-input>
-    </ion-item>
+    <ion-card-content>
+      <form (ngSubmit)="submitFlight()">
+        <ion-item>
+          <ion-label position="floating">Flight No</ion-label>
+          <ion-input type="text" [(ngModel)]="flight.flight_no" name="flight_no" required></ion-input>
+        </ion-item>
 
-    <ion-item>
-      <ion-label position="floating">Destination</ion-label>
-      <ion-input type="text" [(ngModel)]="flight.destination" name="destination" required></ion-input>
-    </ion-item>
+        <ion-item>
+          <ion-label position="floating">Origin</ion-label>
+          <ion-input type="text" [(ngModel)]="flight.origin" name="origin" (ionInput)="loadOriginIdent($event)"
+            required></ion-input>
+        </ion-item>
 
-    <ion-item>
-      <ion-label position="floating">Time</ion-label>
-      <ion-input type="time" [(ngModel)]="flight.time" name="time" required></ion-input>
-    </ion-item>
+        <ion-item *ngIf="originIdents.length > 0">
+          <ion-label>Choose Origin</ion-label>
+          <ion-select [(ngModel)]="flight.origin_ident" name="origin_ident" interface="popover" required>
+            <ion-select-option *ngFor="let ident of originIdents" [value]="ident">{{ ident }}</ion-select-option>
+          </ion-select>
+        </ion-item>
 
-    <ion-button expand="full" type="submit">Add Flight</ion-button>
-  </form>
+        <ion-item>
+          <ion-label position="floating">Destination</ion-label>
+          <ion-input type="text" [(ngModel)]="flight.destination" name="destination"
+            (ionInput)="loadDestinationIdent($event)" required></ion-input>
+        </ion-item>
+
+        <ion-item *ngIf="destinationIdents.length > 0">
+          <ion-label>Choose Destination</ion-label>
+          <ion-select [(ngModel)]="flight.destination_ident" name="destination_ident" interface="popover" required>
+            <ion-select-option *ngFor="let ident of destinationIdents" [value]="ident">{{ ident }}</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Time</ion-label>
+          <ion-input type="time" [(ngModel)]="flight.time" name="time" required></ion-input>
+        </ion-item>
+
+        <div class="button-container">
+          <ion-button expand="block" type="submit" color="primary">Add Flight</ion-button>
+        </div>
+      </form>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
