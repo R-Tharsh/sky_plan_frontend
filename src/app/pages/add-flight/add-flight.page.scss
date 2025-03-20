@@ -1,0 +1,36 @@
+.flight-card {
+    max-width: 400px;
+    margin: auto;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+ion-card-header {
+    background-color: #0078d4;
+    color: white;
+    text-align: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+ion-card-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+ion-item {
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+ion-button {
+    width: 100%;
+    border-radius: 8px;
+    font-weight: bold;
+}
