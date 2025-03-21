@@ -24,7 +24,7 @@ export class AirportDetailPage implements OnInit {
 
   getAirportDetails() {
     this.airportService.getAirportById(this.airportId).subscribe(response => {
-      this.airport = response;
+      this.airport = response.data;
     });
   }
 }

@@ -26,7 +26,7 @@ export class AirportsPage implements OnInit {
   loadAirports() {
     this.airportService.getAirports(this.currentPage, this.perPage).subscribe(response => {
       this.airports = response.data.data;
-      this.totalPages = response.last_page;
+      this.totalPages = response.data.last_page;
     });
   }
 
